@@ -1,5 +1,6 @@
 import tweepy
 import textblob
+from textblob import TextBlob
 from tweepy import OAuthHandler
 
 consumer_key = "0XlgcKe6UTnXiSyikruP3upFw"
@@ -12,4 +13,13 @@ auth.set_access_token(access_token, access_secret)
 
 api = tweepy.API(auth)
 
-public_tweets = api.search('turkey')
+search_term = 'football'
+
+public_tweets = api.search(search_term)
+
+print search_term
+
+for tweet in public_tweets:
+    print tweet.text
+    analysis = TextBlob(tweet.text)
+    print analysis.sentiment
