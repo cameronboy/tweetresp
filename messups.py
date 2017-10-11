@@ -1,5 +1,5 @@
 import tweepy
-from textblob import textblob
+import textblob
 from tweepy import OAuthHandler
 
 consumer_key = "0XlgcKe6UTnXiSyikruP3upFw"
