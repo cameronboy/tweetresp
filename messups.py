@@ -17,9 +17,9 @@ search_term = 'football'
 
 public_tweets = api.search(search_term)
 
-print search_term
+print(search_term)
 
 for tweet in public_tweets:
-    print tweet.text
+    print(tweet.text)
     analysis = TextBlob(tweet.text)
-    print analysis.sentiment
+    print(analysis.sentiment)
