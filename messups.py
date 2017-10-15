@@ -34,3 +34,7 @@ for tweet in public_tweets:
     print(tweet.text)
     analysis = tb.TextBlob(tweet.text)
     print(analysis.sentiment)
+    print(tweet.user.location)
+    print(tweet.coordinates)
+    print(tweet.geo)
+    print(tweet.place)
