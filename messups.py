@@ -34,6 +34,9 @@ for tweet in public_tweets:
     print(tweet.text)
     analysis = tb.TextBlob(tweet.text)
     print(analysis.sentiment)
+    #it seems like there are four attributes that are relavent to mapping tweets
+    #the problem is most in practice are null, user.location often has something
+    #but it is not necessary to use a real answer, "home sweet home" is hard to map :)
     print(tweet.user.location)
     print(tweet.coordinates)
     print(tweet.geo)
