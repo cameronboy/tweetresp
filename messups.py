@@ -42,7 +42,7 @@ for tweet in public_tweets:
     print(analysis.sentiment)
 
     #it seems like there are four attributes that are relavent to mapping tweets
-    #the problem is most in practice are null, user.location often has something
+    #most in practice are null, user.location sometimes has something
     #but it is not necessary to use a real answer
     #"home sweet home" is hard to map :)
     print(tweet.user.location)
