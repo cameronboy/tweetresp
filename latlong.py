@@ -1,5 +1,7 @@
 # Using Python requests and the Google Maps Geocoding API.
 #
+# from https://gist.github.com/pnavarrc/5379521
+#
 # References:
 #
 # * http://docs.python-requests.org/en/latest/
