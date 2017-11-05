@@ -30,4 +30,5 @@ def latlong (term):
     geodata['lng'] = result['geometry']['location']['lng']
     geodata['address'] = result['formatted_address']
 
-    return '({lat}, {lng})'.format(**geodata)
+    #return '({lat}, {lng})'.format(**geodata)
+    return '{lat}\t{lng}'.format(**geodata)

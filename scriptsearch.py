@@ -3,6 +3,8 @@ import textblob as tb
 import json
 from latlongfunc import latlong
 import requests
+import time
+from datetime import date
 
 # Load credentials into variables
 """
@@ -28,7 +30,6 @@ api = tweepy.API(auth)
 
 #in the future search_term will be an input
 search_term = 'football'
-
 #assigning all the relevant tweets to public_tweets
 public_tweets = api.search(search_term)
 
@@ -36,12 +37,19 @@ public_tweets = api.search(search_term)
 #understand what the program is doing
 print(search_term)
 
+txtfile = open('{}{}.txt'.format(search_term,date.today()),'a')
+
+txtfile.write('latitude\tlongitude\tpolarity\tsubjectivity\ttweet\n')
+
+
 for tweet in public_tweets:
     #this is an analysis using a module called textblob
     analysis = tb.TextBlob(tweet.text)
 
-    print(tweet.text)
-    print(analysis.sentiment)
+    #print(tweet.text)
+    #print(analysis.sentiment)
+    #txtfile.write(analysis.polarity+'\t'+analysis.subjectivity+'\t')
+    #txtfile.write('{}\t{}\t'.format(analysis.polarity,analysis.subjectivity))
     #print(analysis.polarity)
 
     #it seems like there are four attributes that are relavent to mapping tweets
@@ -54,24 +62,46 @@ for tweet in public_tweets:
     #     print(tweet.coordinates)
     #     print(tweet.coordinates.coordinates)
 
-    if tweet.user.location != None:
-        print('user.location')
-        print(tweet.user.location)
+    if tweet.place != None:
+        #print('place')
+        #print(tweet.place.full_name)
+        #print(tweet.place)
         try:
-            print(latlong(tweet.user.location))
+            #print(latlong(tweet.place.full_name))
+            txtfile.write(latlong(tweet.place.full_name))
+            txtfile.write('\t')
+        except IndexError:
+            print(tweet.place.full_name)
+            print('index error place')
+            continue
+        txtfile.write('{}\t{}'.format(analysis.polarity,analysis.subjectivity))
+        try:
+            txtfile.write('{}\n'.format(tweet.text))
+        except UnicodeEncodeError:
+            txtfile.write('\n')
+
+
+    if tweet.user.location != None:
+        #print('user.location')
+        #print(tweet.user.location)
+        #txtfile.write('{}\t{}\t'.format(analysis.polarity,analysis.subjectivity))
+        try:
+            #print(latlong(tweet.user.location))
+            txtfile.write(latlong(tweet.user.location))
+            txtfile.write('\t')
         except IndexError:
             print(tweet.user.location)
+            print('index error user location')
+            continue
+        txtfile.write('{}\t{}'.format(analysis.polarity,analysis.subjectivity))
+        try:
+            txtfile.write('{}\n'.format(tweet.text))
+        except UnicodeEncodeError:
+            txtfile.write('\n')
 
     # if tweet.geo != None:
     #     print('geo')
     #     print(tweet.geo)
     #     print(tweet.geo.coordinates)
 
-    if tweet.place != None:
-        print('place')
-        print(tweet.place.full_name)
-        print(tweet.place)
-        try:
-            print(latlong(tweet.place.full_name))
-        except IndexError:
-            print(tweet.place.full_name)
+txtfile.close()
