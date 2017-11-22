@@ -1,0 +1,25 @@
+latitude	longitude	polarity	subjectivity	tweet
+41.7055716	-86.2353388	1.0	0.3	
+33.7489954	-84.3879824	-0.2	0.2	
+33.0185039	-80.17564809999999	0.0	0.0	RT @ESPNCFB: Week 13 College Football Playoff rankings:
+
+21. Stanford
+22. Northwestern
+23. Boise State
+24. South Carolina
+25. Virginia Tech…
+40.8823215	-74.08319709999999	0.0	0.0	RT @VarsityAces: Breaking: https://t.co/zbMAhcBBKO confirms St. Joseph and Pope John will appear at a hearing before the NJSIAA Controversi…
+36.1626638	-86.7816016	-0.325	0.85	G5 teams in the College Football Playoff rankings: 
+#23 Boise State
+#20 Memphis
+#15 UCF
+Disappointing, but not unexpected.
+32.2704245	-97.17917589999999	-0.26923076923076916	0.46153846153846156	@TCUWhiteTrash what's happened to Boyd football? Not very good these days.
+36.3616134	-93.5652597	0.0	0.0	RT @dayneyoung: Still the craziest thing I've ever seen in college football. 
+#IronBowl https://t.co/sWXuwLqpYc
+52.48624299999999	-1.890401	0.05	0.1	RT @Knox_Harrington: "Liverpool Football Club need to support their supporters as a bare minimum".
+
+Me, here, on that:
+
+https://t.co/3wkTc6…
+43.6187102	-116.2146068	-0.2	0.2	
