@@ -30,6 +30,7 @@ api = tweepy.API(auth)
 
 #in the future search_term will be an input
 search_term = 'football'
+
 #assigning all the relevant tweets to public_tweets
 public_tweets = api.search(search_term)
 
@@ -61,6 +62,11 @@ for tweet in public_tweets:
     #     print('coordinates')
     #     print(tweet.coordinates)
     #     print(tweet.coordinates.coordinates)
+    #
+    # if tweet.geo != None:
+    #     print('geo')
+    #     print(tweet.geo)
+    #     print(tweet.geo.coordinates)
 
     if tweet.place != None:
         #print('place')
@@ -74,7 +80,7 @@ for tweet in public_tweets:
             print(tweet.place.full_name)
             print('index error place')
             continue
-        txtfile.write('{}\t{}'.format(analysis.polarity,analysis.subjectivity))
+        txtfile.write('{}\t{}\t'.format(analysis.polarity,analysis.subjectivity))
         try:
             txtfile.write('{}\n'.format(tweet.text))
         except UnicodeEncodeError:
@@ -93,15 +99,10 @@ for tweet in public_tweets:
             print(tweet.user.location)
             print('index error user location')
             continue
-        txtfile.write('{}\t{}'.format(analysis.polarity,analysis.subjectivity))
+        txtfile.write('{}\t{}\t'.format(analysis.polarity,analysis.subjectivity))
         try:
             txtfile.write('{}\n'.format(tweet.text))
         except UnicodeEncodeError:
             txtfile.write('\n')
-
-    # if tweet.geo != None:
-    #     print('geo')
-    #     print(tweet.geo)
-    #     print(tweet.geo.coordinates)
 
 txtfile.close()
